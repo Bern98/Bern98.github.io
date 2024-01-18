@@ -2,3 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	/* DEBUG */
+/*	*:nth-child(even) {
+		@apply bg-green-600;
+	  }
+  
+	  *:nth-child(odd) {
+		@apply bg-green-100;
+	  }*/
+	  /*               */
+
+	  
+	@font-face {
+		font-family: 'custom';
+		src: url("/fonts/custom.ttf") format('opentype');
+	}
+
+	@font-face {
+		font-family: 'deadCRT';
+		src: url("/fonts/DEADCRT.ttf") format('opentype');
+	}
+	
+	@font-face {
+		font-family: 'kongtext';
+		src: url("/fonts/kongtext.ttf") format('opentype');
+	}
+
+	h1 {
+		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5
+	  }
+	  
+	  h2 {
+		@apply text-5xl p-2
+	  }
+
+	  p {
+		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5
+	  }
+
+	  container {
+		@apply static
+	  }
+
+	h1_main_page {
+		@apply static flex-none block font-kongtext text-3xl text-normal-gray  md:text-4xl lg:text-6xl  
+	}
+
+	div_text_row {
+		@apply w-full h-screen flex items-center justify-center gap-10
+	}
+
+	  /* width */
+	::-webkit-scrollbar {
+	    width: 10px;
+	}
+	
+	/* Track */
+	::-webkit-scrollbar-track {
+	    background: #f1f1f1;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	    background: #888;
+	    border-radius: 5px;
+	}
+	
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	    background: #555;
+	}
+}
