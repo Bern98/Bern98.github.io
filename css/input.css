@@ -30,7 +30,8 @@
 	}
 
 	h1 {
-		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5
+		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5;
+		filter:url('#rgb-split');
 	  }
 	  
 	  h2 {
@@ -45,12 +46,13 @@
 		@apply static
 	  }
 
-	h1_main_page {
-		@apply static flex-none block font-kongtext text-3xl text-normal-gray  md:text-4xl lg:text-6xl  
-	}
-
 	div_text_row {
 		@apply w-full h-screen flex items-center justify-center gap-10
+	}
+
+	.hover_text {
+		@apply not-italic text-highlight-gray
+	
 	}
 
 	  /* width */
@@ -73,4 +75,24 @@
 	::-webkit-scrollbar-thumb:hover {
 	    background: #555;
 	}
+
 }
+
+@layer components {
+	.hover_text {
+	  &:hover {
+		@apply cursor-pointer text-white;
+	  }
+
+	  &:hover .hover_image {
+		@apply block; /* Display the image when the text is hovered */
+	  }
+	}
+  
+	.hover_image {
+	  @apply hidden absolute; /* Initially hide the image */
+	 
+	}
+  
+  }
+  

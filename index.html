@@ -5,6 +5,25 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Matteo Bernardini</title>
+	<svg width="0" height="0">
+		<filter id="rgb-split">
+			<feOffset in="SourceGraphic" dx="1.5" dy="1.5" result="layer-one" />
+			<feComponentTransfer in="layer-one" result="red">
+				<feFuncR type="identity" />
+				<feFuncG type="discrete" tableValues="0" />
+				<feFuncB type="discrete" tableValues="0" />
+			</feComponentTransfer>
+
+			<feOffset in="SourceGraphic" dx="-1.5" dy="-1.5" result="layer-two" />
+			<feComponentTransfer in="layer-two" result="cyan">
+				<feFuncR type="discrete" tableValues="0" />
+				<feFuncG type="identity" />
+				<feFuncB type="identity" />
+			</feComponentTransfer>
+
+			<feBlend in="red" in2="cyan" mode="screen" result="color-split" />
+		</filter>
+	</svg>
 	<link href="css/output.css" rel="stylesheet">
 </head>
 
@@ -14,29 +33,31 @@
 		<video src="media/videoglitch.mp4" type="video/mp4" autoplay muted loop></video>
 	</div>
 
+	<img src="./media/me.jpeg" class="hover_image">
 
 	<div class="static flex flex-wrap">
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="h1_main_page">Ciao! Sono <em class="not-italic text-highlight-gray">Matteo
+			<h1 class="h1_main_page" id="first_text">Ciao! Sono <em class="hover_text">Matteo
 					Bernardini</em> Laureando in Informatica presso l'<em
 					class="not-italic text-highlight-gray">Universita'
 					di Pisa</em></h1>
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="h1_main_page">Suono la chitarra dal 2012, lezioni di canto dal 2021, competenze
+			<h1 class="h1_main_page" id="second_text">Suono la chitarra dal 2012, lezioni di canto dal 2021, competenze
 				anche in
 				basso e batteria.</h1>
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="h1_main_pag">Grande passione anche per i giochi in generale, tra cui: videogiochi,
+			<h1 class="h1_main_pag" id="third_text">Grande passione anche per i giochi in generale, tra cui:
+				videogiochi,
 				giochi da
 				tavolo,
 				ecc...</h1>
 		</div>
-		
+
 	</div>
 
 
