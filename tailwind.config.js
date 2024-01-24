@@ -9,7 +9,7 @@ module.exports = {
 			kongtext: "kongtext"
 		},
 		colors: {
-			'normal-gray': '#a8a8a8',
+			'normal-gray': '#c2c2c2',
 			'highlight-gray': '#e6e6e6',
 		},
 		lineHeight: {

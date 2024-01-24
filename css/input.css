@@ -30,8 +30,7 @@
 	}
 
 	h1 {
-		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5;
-		filter:url('#rgb-split');
+		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5 uppercase;
 	  }
 	  
 	  h2 {
@@ -42,17 +41,39 @@
 		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5
 	  }
 
-	  container {
-		@apply static
-	  }
+	  body,
+		html,
+		li,
+		ul {
+			margin: 0;
+			padding: 0
+		}
+	
+		body {
+			scroll-behavior: smooth;
+			text-rendering: optimizeSpeed
+		}
 
-	div_text_row {
-		@apply w-full h-screen flex items-center justify-center gap-10
-	}
+		a:not([class]) {
+			-webkit-text-decoration-skip: ink;
+			text-decoration-skip-ink: auto
+		}
 
-	.hover_text {
+	.hover-text {
 		@apply not-italic text-highlight-gray
 	
+	}
+
+	.color-separation {
+		filter:url('#rgb-split');
+	}
+
+	.color-separation > img {
+		filter: none;
+	}
+
+	.tv-screen {
+		animation: turn-on-transform .4s, turn-on-filter 1s
 	}
 
 	  /* width */
@@ -79,20 +100,24 @@
 }
 
 @layer components {
-	.hover_text {
+	.hover-text {
 	  &:hover {
 		@apply cursor-pointer text-white;
 	  }
+	}
+  
+	.hover-image {
+		@apply fixed bg-white p-2 rounded shadow-md invisible z-10 lg:max-w-96 md:max-w-48 block mt-10 mr-20 right-0;
+	}
 
-	  &:hover .hover_image {
-		@apply block; /* Display the image when the text is hovered */
-	  }
+	.footer-link-class {
+		&:hover {
+			@apply text-gray-300
+		}
+
+		&:active {
+			@apply text-red-100
+		}
 	}
-  
-	.hover_image {
-	  @apply hidden absolute; /* Initially hide the image */
-	 
-	}
-  
   }
   

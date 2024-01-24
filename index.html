@@ -33,35 +33,59 @@
 		<video src="media/videoglitch.mp4" type="video/mp4" autoplay muted loop></video>
 	</div>
 
-	<img src="./media/me.jpeg" class="hover_image">
+	<div class="static flex flex-wrap tv-screen">
 
-	<div class="static flex flex-wrap">
+		<div class="relative w-full h-screen flex items-center justify-center gap-10">
 
-		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="h1_main_page" id="first_text">Ciao! Sono <em class="hover_text">Matteo
-					Bernardini</em> Laureando in Informatica presso l'<em
-					class="not-italic text-highlight-gray">Universita'
-					di Pisa</em></h1>
+			<h1 id="first-text" class="relative color-separation">
+
+				Ciao! sono
+
+				<span class="peer hover-text" tabindex="0">
+					Matteo Bernardini
+				</span>
+				<img src="./media/me.jpeg" class="hover-image peer-hover:visible exclude-color-separation">
+
+				Laureando in Informatica presso l'
+
+				<a target="_blank" href="https://www.unipi.it/" class="hover-text not-italic text-highlight-gray">
+					Universita' di Pisa
+				</a>
+
+			</h1>
+
+
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="h1_main_page" id="second_text">Suono la chitarra dal 2012, lezioni di canto dal 2021, competenze
+			<h1 class="color-separation" id="second-text">Suono la chitarra dal 2012, lezioni di canto dal 2021,
+				competenze
 				anche in
 				basso e batteria.</h1>
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="h1_main_pag" id="third_text">Grande passione anche per i giochi in generale, tra cui:
+			<h1 class="color-separation" id="third-text">Grande passione anche per i giochi in generale, tra cui:
 				videogiochi,
 				giochi da
 				tavolo,
 				ecc...</h1>
 		</div>
 
+		<footer class="w-full text-white p-4 pt-40">
+			<div class="container font-kongtext lg:text-3xl md:text-1xl color-separation">
+				<!-- Vertical list of links -->
+				<div class="flex flex-col items-start space-y-10 space-x-0">
+					<a href="#" class="footer-link-class" target="_blank">Curriculum Vitae</a>
+					<a href="https://github.com/Bern98/" class="footer-link-class" target="_blank">Github</a>
+					<a href="https://www.linkedin.com/in/matteo-bernardini-74a7b02a8/" class="footer-link-class" target="_blank">LinkedIn</a>
+					<!-- Add more links as needed -->
+				</div>
+			</div>
+		</footer>
+		
+
 	</div>
-
-
-
 </body>
 
 </html>
