@@ -30,7 +30,7 @@
 	}
 
 	h1 {
-		@apply block font-kongtext text-3xl md:text-4xl lg:text-6xl text-normal-gray p-5 uppercase;
+		@apply block font-kongtext break-words text-3xl lg:text-4xl text-normal-gray uppercase;
 	  }
 	  
 	  h2 {
@@ -68,9 +68,6 @@
 		filter:url('#rgb-split');
 	}
 
-	.color-separation > img {
-		filter: none;
-	}
 
 	.tv-screen {
 		animation: turn-on-transform .4s, turn-on-filter 1s
@@ -107,7 +104,7 @@
 	}
   
 	.hover-image {
-		@apply fixed bg-white p-2 rounded shadow-md invisible z-10 lg:max-w-96 md:max-w-48 block mt-10 mr-20 right-0;
+		@apply absolute block bg-purple-950 p-1 rounded shadow-md invisible z-10 w-60 top-36 md:w-80;
 	}
 
 	.footer-link-class {

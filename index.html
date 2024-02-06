@@ -24,6 +24,32 @@
 			<feBlend in="red" in2="cyan" mode="screen" result="color-split" />
 		</filter>
 	</svg>
+
+	<svg width="0" height="0">
+		<filter id="reverse-rgb-split">
+			<!-- Reverse feBlend -->
+			<feBlend in="SourceGraphic" in2="color-split" mode="screen" result="layer-one" />
+
+			<!-- Reverse feComponentTransfer for cyan -->
+			<feComponentTransfer in="layer-one" result="layer-two">
+				<feFuncR type="discrete" tableValues="0" />
+				<feFuncG type="identity" />
+				<feFuncB type="identity" />
+			</feComponentTransfer>
+
+			<!-- Reverse feOffset for cyan -->
+			<feOffset in="layer-two" dx="1.5" dy="1.5" result="red" />
+
+			<!-- Reverse feComponentTransfer for red -->
+			<feComponentTransfer in="red" result="color-reverse-split">
+				<feFuncR type="identity" />
+				<feFuncG type="discrete" tableValues="0" />
+				<feFuncB type="discrete" tableValues="0" />
+			</feComponentTransfer>
+
+		</filter>
+	</svg>
+
 	<link href="css/output.css" rel="stylesheet">
 </head>
 
@@ -32,25 +58,45 @@
 	<div class="fixed w-max h-max inset-0" style="z-index: -1">
 		<video src="media/videoglitch.mp4" type="video/mp4" autoplay muted loop></video>
 	</div>
+	<!--
+	<div class="fixed left-1 top-1 md:left-6 md:top-6">
+		<p class="font-kongtext text-3xl opacity-30">PLAY</p>
+	</div>
+	-->
+	<div class="fixed right-1 top-1 md:right-6 md:top-6">
+		<p class="font-kongtext text-3xl opacity-90" id="datetime"></p>
+	</div>
 
-	<div class="static flex flex-wrap tv-screen">
+	<div class="fixed z-10 left-9 top-8 md:top-9">
+		<input type="image" src="/media/it-flag.jpg" class="w-7" id="it-flag"/>
+	</div>
+	
+	<div class="fixed z-10 left-20 top-8 md:top-9">
+		<input type="image" src="/media/en-flag.jpg" class="w-7" id="en-flag"/>
+	</div>
+
+	<div class="static flex flex-wrap tv-screen"> <!--CONTENITORE PRINCIPALE-->
 
 		<div class="relative w-full h-screen flex items-center justify-center gap-10">
 
-			<h1 id="first-text" class="relative color-separation">
+			<h1 class="relative flex flex-col items-center">
 
-				Ciao! sono
+				<span class="color-separation tracking-tight whitespace-pre-line" id="hi-i-am">
+					Ciao! sono
+				</span>
 
-				<span class="peer hover-text" tabindex="0">
+				<span class="peer hover-text color-separation " tabindex="0">
 					Matteo Bernardini
 				</span>
-				<img src="./media/me.jpeg" class="hover-image peer-hover:visible exclude-color-separation">
 
-				Laureando in Informatica presso l'
+				<img src="./media/me.jpeg" class="hover-image peer-hover:visible">
 
-				<a target="_blank" href="https://www.unipi.it/" class="hover-text not-italic text-highlight-gray">
-					Universita' di Pisa
-				</a>
+				<span class="color-separation" id="degree-text">
+					Laureando in Informatica<br>presso l'
+					<a target="_blank" href="https://www.unipi.it/" class="hover-text not-italic text-highlight-gray">
+						Universita' di Pisa
+					</a>
+				</span>
 
 			</h1>
 
@@ -58,18 +104,19 @@
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="color-separation" id="second-text">Suono la chitarra dal 2012, lezioni di canto dal 2021,
-				competenze
-				anche in
+			<h1 class="color-separation whitespace-normal  md:whitespace-pre-line" id="second-text">Suono
+				la chitarra dal 2012,
+				lezioni di canto dal 2021,
+				competenze anche in
 				basso e batteria.</h1>
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="color-separation" id="third-text">Grande passione anche per i giochi in generale, tra cui:
-				videogiochi,
-				giochi da
-				tavolo,
-				ecc...</h1>
+			<h1 class="color-separation whitespace-normal md:whitespace-pre-line" id="third-text">Grande
+				passione anche per
+				i giochi in generale, tra cui:
+				videogiochi, giochi da
+				tavolo, ecc...</h1>
 		</div>
 
 		<footer class="w-full text-white p-4 pt-40">
@@ -78,14 +125,57 @@
 				<div class="flex flex-col items-start space-y-10 space-x-0">
 					<a href="#" class="footer-link-class" target="_blank">Curriculum Vitae</a>
 					<a href="https://github.com/Bern98/" class="footer-link-class" target="_blank">Github</a>
-					<a href="https://www.linkedin.com/in/matteo-bernardini-74a7b02a8/" class="footer-link-class" target="_blank">LinkedIn</a>
+					<a href="https://www.linkedin.com/in/matteo-bernardini-74a7b02a8/" class="footer-link-class"
+						target="_blank">LinkedIn</a>
 					<!-- Add more links as needed -->
 				</div>
 			</div>
 		</footer>
-		
+
 
 	</div>
+
+	<script>
+		// Get current date and time
+		var now = new Date();
+		var dayOfMonth = now.getDate();
+		var month = now.toLocaleString('default', { month: 'short' }); // Get the short month name
+
+		// Construct the datetime string
+		var datetime = dayOfMonth + ' ' + month.toUpperCase();
+
+		// Insert date and time into HTML
+		document.getElementById("datetime").innerHTML = datetime;
+
+		// FUnction to change text of a DOM element
+		function change_text(id, text) {
+			var span = document.getElementById(id);
+			span.innerHTML = text
+		}
+
+		var it_flag_button = document.getElementById("it-flag")
+		var en_flag_button = document.getElementById("en-flag")
+		
+		it_flag_button.onclick = (event) => {
+			change_text("hi-i-am", "Ciao! sono")
+			change_text("degree-text", "Laureando in Informatica<br>presso l' <a target='_blank' href='https://www.unipi.it/' class='hover-text not-italic text-highlight-gray'>Università di Pisa</a>")
+
+			change_text("second-text","Suono la chitarra dal 2012, lezioni di canto dal 2021, competenze anche in basso e batteria.")
+			change_text("third-text","Grande passione anche per i giochi in generale, tra cui: videogiochi, giochi da tavolo, ecc...")
+
+		};
+
+
+		en_flag_button.onclick = (event) => {
+			change_text("hi-i-am", "Hi! I'm")
+			change_text("degree-text", "Bachelor's degree in Computer Science<br>at the <a target='_blank' href='https://www.unipi.it/' class='hover-text not-italic text-highlight-gray'>University of Pisa</a>")
+
+			change_text("second-text","I have been playing the guitar since 2012, singing lessons since 2021, also skills in bass and drums")
+			change_text("third-text","Great passion also for games in general, including: video games, board games, etc...")
+
+		};
+
+	</script>
 </body>
 
 </html>
