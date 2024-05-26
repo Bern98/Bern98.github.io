@@ -63,16 +63,16 @@
 		<p class="font-kongtext text-3xl opacity-30">PLAY</p>
 	</div>
 	-->
-	<div class="fixed right-1 top-1 md:right-6 md:top-6">
-		<p class="font-kongtext text-3xl opacity-90" id="datetime"></p>
+	<div class="fixed right-1 top-1 z-10 md:right-6 md:top-6">
+		<p class="font-kongtext text-3xl opacity-80" id="datetime"></p>
 	</div>
 
-	<div class="fixed z-10 left-9 top-8 md:top-9">
-		<input type="image" src="/media/it-flag.jpg" class="w-7" id="it-flag"/>
+	<div class="fixed z-20 left-9 top-8 opacity-80 md:top-9">
+		<input type="image" src="../media/it-flag.jpg" class="w-7" id="it-flag" />
 	</div>
-	
-	<div class="fixed z-10 left-20 top-8 md:top-9">
-		<input type="image" src="/media/en-flag.jpg" class="w-7" id="en-flag"/>
+
+	<div class="fixed z-20 left-20 top-8 opacity-80 md:top-9">
+		<input type="image" src="../media/en-flag.jpg" class="w-7" id="en-flag" />
 	</div>
 
 	<div class="static flex flex-wrap tv-screen"> <!--CONTENITORE PRINCIPALE-->
@@ -104,16 +104,15 @@
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="color-separation whitespace-normal  md:whitespace-pre-line" id="second-text">Suono
-				la chitarra dal 2012,
-				lezioni di canto dal 2021,
-				competenze anche in
-				basso e batteria.</h1>
+			<h1 class="color-separation whitespace-normal md:whitespace-pre-line" id="second-text">Suono
+				la chitarra dal 2012
+				e ho una grandissima
+				passione per la musica.</h1>
 		</div>
 
 		<div class="w-full h-screen flex items-center justify-center gap-10">
-			<h1 class="color-separation whitespace-normal md:whitespace-pre-line" id="third-text">Grande
-				passione anche per
+			<h1 class="color-separation whitespace-normal md:whitespace-pre-line" id="third-text">La mia
+				seconda passione e' per
 				i giochi in generale, tra cui:
 				videogiochi, giochi da
 				tavolo, ecc...</h1>
@@ -123,7 +122,7 @@
 			<div class="container font-kongtext lg:text-3xl md:text-1xl color-separation">
 				<!-- Vertical list of links -->
 				<div class="flex flex-col items-start space-y-10 space-x-0">
-					<a href="#" class="footer-link-class" target="_blank">Curriculum Vitae</a>
+					<a href="../pages/curriculum.html" class="footer-link-class" target="#">Curriculum Vitae</a>
 					<a href="https://github.com/Bern98/" class="footer-link-class" target="_blank">Github</a>
 					<a href="https://www.linkedin.com/in/matteo-bernardini-74a7b02a8/" class="footer-link-class"
 						target="_blank">LinkedIn</a>
@@ -155,13 +154,13 @@
 
 		var it_flag_button = document.getElementById("it-flag")
 		var en_flag_button = document.getElementById("en-flag")
-		
+
 		it_flag_button.onclick = (event) => {
 			change_text("hi-i-am", "Ciao! sono")
 			change_text("degree-text", "Laureando in Informatica<br>presso l' <a target='_blank' href='https://www.unipi.it/' class='hover-text not-italic text-highlight-gray'>Universita' di Pisa</a>")
 
-			change_text("second-text","Suono la chitarra dal 2012, lezioni di canto dal 2021, competenze anche in basso e batteria.")
-			change_text("third-text","Grande passione anche per i giochi in generale, tra cui: videogiochi, giochi da tavolo, ecc...")
+			change_text("second-text", "Suono la chitarra dal 2012, lezioni di canto dal 2021, competenze anche in basso e batteria.")
+			change_text("third-text", "Grande passione anche per i giochi in generale, tra cui: videogiochi, giochi da tavolo, ecc...")
 
 		};
 
@@ -170,8 +169,8 @@
 			change_text("hi-i-am", "Hi! I'm")
 			change_text("degree-text", "Bachelor's degree in Computer Science<br>at the <a target='_blank' href='https://www.unipi.it/' class='hover-text not-italic text-highlight-gray'>University of Pisa</a>")
 
-			change_text("second-text","I have been playing the guitar since 2012, singing lessons since 2021, also skills in bass and drums")
-			change_text("third-text","Great passion also for games in general, including: video games, board games, etc...")
+			change_text("second-text", "I have been playing the guitar since 2012, singing lessons since 2021, also skills in bass and drums")
+			change_text("third-text", "Great passion also for games in general, including: video games, board games, etc...")
 
 		};
 
